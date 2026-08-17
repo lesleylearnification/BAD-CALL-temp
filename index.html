@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#d62828" />
+  <title>BAD CALL</title>
+  <meta name="description" content="The prediction market where you bet against humanity." />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="brand-lockup">
+      <div class="brand-wordmark" aria-label="BAD CALL">BAD CALL</div>
+      <div class="brand-tagline">The prediction market where you bet against humanity.</div>
+    </div>
+    <button class="icon-button" id="menuButton" aria-label="Open menu" aria-expanded="false">☰</button>
+  </header>
+
+  <nav class="desktop-nav" aria-label="Primary">
+    <a href="#/today" data-route="today">TODAY</a>
+    <a href="#/waiting" data-route="waiting">STILL WAITING FOR BAD NEWS</a>
+    <a href="#/leaderboard" data-route="leaderboard">RANKS</a>
+    <a href="#/profile" data-route="profile">PROFILE</a>
+  </nav>
+
+  <main id="main" tabindex="-1">
+    <section id="screen-today" class="screen active" data-screen="today">
+      <div class="category-strip" aria-label="Today's five categories">
+        <button class="category-chip active" data-category="famous"><i class="pictogram">♢</i><span>Famous People</span><b>1</b></button>
+        <button class="category-chip" data-category="entertainment"><i class="pictogram">✦</i><span>Entertainment</span><b>2</b></button>
+        <button class="category-chip" data-category="internet"><i class="pictogram">⌁</i><span>Internet</span><b>3</b></button>
+        <button class="category-chip" data-category="trends"><i class="pictogram">◇</i><span>Trends</span><b>4</b></button>
+        <button class="category-chip" data-category="wtf"><i class="pictogram">⊗</i><span>WTF?!</span><b>5</b></button>
+      </div>
+
+      <div class="workspace">
+        <section class="main-column">
+          <div class="category-heading">
+            <div>
+              <p class="eyebrow" id="categoryEyebrow">FAMOUS PEOPLE</p>
+              <h1 id="gameName">SHORT 'EM</h1>
+              <p id="categoryDeck">Who's going up? Who's going down? Put your DoomBucks where your judgment probably shouldn't be.</p>
+            </div>
+            <div class="session-progress" aria-label="Daily progress">
+              <span id="progressLabel">1 / 5 CALLS</span>
+              <div class="progress-track"><div class="progress-fill" id="progressFill" style="width:20%"></div></div>
+            </div>
+          </div>
+
+          <article class="market-card" id="marketCard">
+            <div class="market-art" id="marketArt" role="img" aria-label="Two wedding rings on fire being hauled away by a tiny tow truck, illustrating a breakup prediction.">
+              <div class="art-original" aria-hidden="true"><span id="artSymbol">RINGS</span><i></i><i></i><i></i></div>
+              <div class="art-caption">LOVE, LEVERAGED</div>
+            </div>
+            <div class="market-content">
+              <div class="market-meta">
+                <span class="status-pill">OPEN</span>
+                <span id="marketNumber">MARKET 01 OF 05</span>
+              </div>
+              <h2 id="marketQuestion">Will this celebrity couple publicly announce a separation before August 31?</h2>
+              <button class="text-link" id="resolutionButton">How this resolves</button>
+
+              <div class="belief-clash"><div class="mob"><span>THE MOB</span><strong id="mobOdds">46%</strong><small id="mobMicrocopy">Apparently they know something.</small></div><div class="versus">VS</div><div class="you"><span>YOU</span><strong id="youOdds">67%</strong><small>Confidence is free. Regret costs extra.</small></div></div><div class="odds-panel" aria-live="polite">
+                <div>
+                  <span>BAD CALL OPENING LINE</span>
+                  <strong id="openingOdds">31%</strong>
+                </div>
+                <div>
+                  <span>CURRENT MARKET</span>
+                  <strong id="currentOdds">46%</strong>
+                </div>
+                <div>
+                  <span>CALLS</span>
+                  <strong id="callCount">187</strong>
+                </div>
+              </div>
+
+              <fieldset class="choice-group">
+                <legend>Your call</legend>
+                <button class="choice-button selected" data-choice="buy">▲ BUY <small>I think it happens</small></button>
+                <button class="choice-button" data-choice="short">▼ SHORT <small>I think it doesn't</small></button>
+              </fieldset>
+
+              <div class="probability-control">
+                <label for="probabilityRange">YOUR ODDS: <strong id="probabilityValue">67%</strong></label>
+                <div class="range-row">
+                  <button class="step-button" id="probDown" aria-label="Decrease probability">−</button>
+                  <input id="probabilityRange" type="range" min="1" max="99" value="67" />
+                  <button class="step-button" id="probUp" aria-label="Increase probability">+</button>
+                </div>
+              </div>
+
+              <fieldset class="stake-group">
+                <legend>HOW HARD DO YOU WANT TO REGRET THIS?</legend>
+                <button data-stake="100"><span class="stake-label">MEH</span> <b>100</b></button>
+                <button data-stake="250"><span class="stake-label">HMM...</span> <b>250</b></button>
+                <button data-stake="500" class="selected"><span class="stake-label">YEP</span> <b>500</b></button>
+                <button data-stake="750"><span class="stake-label">OH, ABSOLUTELY</span> <b>750</b></button>
+                <button data-stake="1000"><span class="stake-label">I'LL DIE ON THIS HILL</span> <b>1,000</b></button>
+              </fieldset>
+
+              <div class="payout-preview">
+                <div><span>IF YOU'RE RIGHT</span><strong id="winAmount">+500 DB</strong></div>
+                <div><span>IF YOU'RE WRONG</span><strong id="loseAmount">−500 DB</strong></div>
+              </div>
+
+              <button class="primary-cta" id="makeCallButton">LOCK IN THIS TERRIBLE IDEA</button>
+              <p class="microcopy" id="riskRemaining">Today's risk left: 1,000 DB</p>
+            </div>
+          </article>
+
+          <div class="market-nav">
+            <button class="secondary-button" id="prevMarket">‹ PREVIOUS</button>
+            <button class="secondary-button" id="nextMarket">NEXT ›</button>
+          </div>
+        </section>
+
+        <aside class="side-column">
+          <section class="doomboard" aria-labelledby="doomboardTitle">
+            <div class="section-heading">
+              <p class="eyebrow">YOUR DOOMBOARD</p>
+              <h2 id="doomboardTitle">How badly are you doing?</h2>
+            </div>
+            <div class="metrics-grid">
+              <button class="metric-card"><span>💀 OVERALL DOOMBUCKS</span><strong>12,840</strong></button>
+              <button class="metric-card"><span>🎯 PREDICTION ACCURACY</span><strong>68</strong></button>
+              <button class="metric-card"><span>🚀 BEST LONG-SHOT CALL</span><strong>8%</strong></button>
+              <button class="metric-card"><span>👑 BEST CATEGORY</span><strong>WTF?!</strong></button>
+              <button class="metric-card"><span>🏆 MONTHLY RANK</span><strong>#127</strong></button>
+              <button class="metric-card"><span>♾️ ALL-TIME RANK</span><strong>#2,941</strong></button>
+            </div>
+          </section>
+
+          <section class="movement-card">
+            <p class="eyebrow">MARKET MOVEMENT</p>
+            <div class="movement-number" id="movementNumber">31% <span>→</span> 46%</div>
+            <div class="fake-sparkline" aria-label="Market consensus rose from 31 percent to 46 percent">
+              <span style="height:22%"></span><span style="height:30%"></span><span style="height:44%"></span><span style="height:41%"></span><span style="height:62%"></span><span style="height:76%"></span>
+            </div>
+            <p>Apparently everyone knows something now.</p>
+          </section>
+        </aside>
+      </div>
+    </section>
+
+    <section id="screen-waiting" class="screen" data-screen="waiting">
+      <div class="page-heading">
+        <p class="eyebrow">YOUR OPEN POSITIONS</p>
+        <h1>STILL WAITING FOR BAD NEWS</h1>
+        <p>Reality is taking its sweet-ass time.</p>
+      </div>
+      <div class="waiting-grid" id="waitingGrid"></div>
+    </section>
+
+    <section id="screen-leaderboard" class="screen" data-screen="leaderboard">
+      <div class="page-heading">
+        <p class="eyebrow">MONTHLY DOOM</p>
+        <h1>WHO EXPECTED THE WORST BEST?</h1>
+      </div>
+      <div class="leader-tabs" role="tablist">
+        <button class="selected">OVERALL</button><button>FAMOUS PEOPLE</button><button>ENTERTAINMENT</button><button>INTERNET</button><button>TRENDS</button><button>WTF?!</button>
+      </div>
+      <ol class="leaderboard-list" id="leaderboardList"></ol>
+    </section>
+
+    <section id="screen-profile" class="screen" data-screen="profile">
+      <div class="profile-card">
+        <div class="profile-icon">☢️</div>
+        <div>
+          <p class="eyebrow">PUBLIC PROFILE</p>
+          <h1>@NOSTRADUMBASS</h1>
+          <p>Your bad judgment is currently unsecured.</p>
+          <button class="primary-cta compact">SECURE ACCOUNT</button>
+        </div>
+      </div>
+      <section class="recent-brags">
+        <h2>RECENT BRAGS</h2>
+        <article class="brag-card"><span>THE MARKET SAID 7%.</span><strong>I FUCKING CALLED IT.</strong><small>Impossible Call</small></article>
+        <article class="brag-card"><span>96% CONFIDENT.</span><strong>100% WRONG.</strong><small>Worst Call</small></article>
+      </section>
+    </section>
+  </main>
+
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    <a href="#/today">TODAY</a>
+    <a href="#/waiting">WAITING</a>
+    <a href="#/leaderboard">RANKS</a>
+    <a href="#/profile">PROFILE</a>
+  </nav>
+
+  <dialog id="resolutionDialog">
+    <form method="dialog">
+      <button class="dialog-close" aria-label="Close">×</button>
+      <p class="eyebrow">HOW THIS RESOLVES</p>
+      <h2>Boringly precise. On purpose.</h2>
+      <p>This market resolves YES only if either person publicly confirms a separation before August 31, 11:59 PM PT. Rumors, anonymous sources, fan speculation, or paparazzi inference do not count.</p>
+      <button class="secondary-button">GOT IT</button>
+    </form>
+  </dialog>
+
+  <dialog id="callDialog">
+    <form method="dialog">
+      <button class="dialog-close" aria-label="Close">×</button>
+      <p class="eyebrow">CALL LOCKED</p>
+      <h2 id="callRoast">Your judgment has left the building.</h2><p class="call-praise" id="callPraise">Your mom must be so proud.</p><p class="call-summary" id="callSummary"></p>
+      <button class="primary-cta compact">GOOD. NEXT.</button>
+    </form>
+  </dialog>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

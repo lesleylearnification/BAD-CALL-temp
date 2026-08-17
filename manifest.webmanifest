@@ -1,0 +1,10 @@
+{
+  "name":"BAD CALL",
+  "short_name":"BAD CALL",
+  "description":"The prediction market where you bet against humanity.",
+  "start_url":"./#/today",
+  "display":"standalone",
+  "background_color":"#f4eddf",
+  "theme_color":"#b91c1c",
+  "icons":[]
+}
